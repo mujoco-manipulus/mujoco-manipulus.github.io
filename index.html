@@ -151,7 +151,7 @@
               pointer-events: none;
             }
           </style>
-          <div style="display: inline-flex; gap: 20px;">
+          <div id="scrollContent" style="display: inline-flex; gap: 20px; padding: 0 20px;">
             <div style="width: 300px; flex-shrink: 0;">
               <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-cup.mp4"
                 style="width: 100%;"></video>
@@ -164,12 +164,10 @@
               <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-pan.mp4"
                 style="width: 100%;"></video>
             </div>
-            <!-- Add remaining videos following the same pattern -->
             <div style="width: 300px; flex-shrink: 0;">
               <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-bowl.mp4"
                 style="width: 100%;"></video>
             </div>
-
             <div style="width: 300px; flex-shrink: 0;">
               <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-bowl.mp4"
                 style="width: 100%;"></video>
@@ -186,7 +184,6 @@
               <video autoplay loop muted playsinline src="assets/tasks/gathering/gathering.mp4"
                 style="width: 100%;"></video>
             </div>
-
             <div style="width: 300px; flex-shrink: 0;">
               <video autoplay loop muted playsinline src="assets/tasks/scooping/scooping-ladle.mp4"
                 style="width: 100%;"></video>
@@ -490,16 +487,30 @@
   </script>
   <script>
     const container = document.getElementById('autoScrollContainer');
-    let scrollAmount = 0;
-    const scrollSpeed = 1; // Adjust this value to control scroll speed
+    const content = document.getElementById('scrollContent');
+
+    // Clone the content twice and append to create seamless loop
+    const clone1 = content.cloneNode(true);
+    const clone2 = content.cloneNode(true);
+
+    // Add same padding to clones
+    clone1.style.padding = '0 20px';
+    clone2.style.padding = '0 20px';
+
+    container.appendChild(clone1);
+    container.appendChild(clone2);
+
+    let scrollAmount = content.offsetWidth; // Start from middle clone
+    const scrollSpeed = 1;
 
     function autoScroll() {
       scrollAmount += scrollSpeed;
       container.scrollLeft = scrollAmount;
 
-      // Reset scroll position when reaching the end
-      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
-        scrollAmount = 0;
+      // If we reach the end of middle clone, jump back to its start
+      if (scrollAmount >= content.offsetWidth * 2) {
+        scrollAmount = content.offsetWidth;
+        container.scrollLeft = scrollAmount;
       }
 
       requestAnimationFrame(autoScroll);
