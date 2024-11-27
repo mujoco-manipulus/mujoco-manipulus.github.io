@@ -1,162 +1,507 @@
 <!DOCTYPE html>
+<!-- saved from url=(0038)https://aypan17.github.io/machiavelli/ -->
 <html>
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link" />
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link" />
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-sheet"></style>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="MuJoCo Manipulus: A Robot Learning Benchmark for Generalizable Tool Manipulation">
-  <meta name="keywords" content="Robotics, Reinforcement Learning, Benchmark">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MuJoCo Manipulus: A Robot Learning Benchmark for Generalizable Tool Manipulation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <link rel="stylesheet" href="files/bootstrap.min.css" />
+  <link href="files/css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="files/style.css" />
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <object type="text/html" data="header-vars.html"></object>
+  <title>MuJoCo Manipulus</title>
+  <!-- <meta property="og:site_name" content="INSERT TITLE" />
+  <meta property="og:title" content="INSERT TITLE" />
+  <meta property="og:description" content="INSERT DESCRIPTION" />
+  <meta property="og:url" content="INSERT LINK" />
+  <meta property="og:image" content="INSERT PREVIEW IMAGE" /> -->
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <!-- <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="INSERT TITLE" />
+  <meta name="twitter:description" content="INSERT DESCRIPTION" />
+  <meta name="twitter:url" content="INSERT LINK" />
+  <meta name="twitter:image" content="INSERT PREVIEW IMAGE" /> -->
+
+  <!-- <script src="files/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="files/sketch.js"></script> -->
 </head>
 
-<body>
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">MuJoCo Manipulus: A Robot Learning Benchmark for Generalizable Tool
-              Manipulation</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a>Anonymous Authors</a>
-              </span>
+<div>
+  <template shadowrootmode="open">
+    <style>
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(poppins-devanagari-400-normal.20fc2635.woff2) format("woff2"),
+          url(poppins-all-400-normal.0298587e.woff) format("woff");
+        unicode-range: U+900-97F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D,
+          U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(poppins-latin-ext-400-normal.9f87e1a8.woff2) format("woff2"),
+          url(poppins-all-400-normal.0298587e.woff) format("woff");
+        unicode-range: U+100-24F, U+259, U+1E??, U+2020, U+20A0-20AB,
+          U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url(poppins-latin-400-normal.53f07e8c.woff2) format("woff2"),
+          url(poppins-all-400-normal.0298587e.woff) format("woff");
+        unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 600;
+        src: url(poppins-devanagari-600-normal.5b72b0b7.woff2) format("woff2"),
+          url(poppins-all-600-normal.29420735.woff) format("woff");
+        unicode-range: U+900-97F, U+1CD0-1CF6, U+1CF8-1CF9, U+200C-200D,
+          U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 600;
+        src: url(poppins-latin-ext-600-normal.472ef062.woff2) format("woff2"),
+          url(poppins-all-600-normal.29420735.woff) format("woff");
+        unicode-range: U+100-24F, U+259, U+1E??, U+2020, U+20A0-20AB,
+          U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+
+      @font-face {
+        font-family: Poppins;
+        font-style: normal;
+        font-display: swap;
+        font-weight: 600;
+        src: url(poppins-latin-600-normal.15391d77.woff2) format("woff2"),
+          url(poppins-all-600-normal.29420735.woff) format("woff");
+        unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC,
+          U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+          U+FEFF, U+FFFD;
+      }
+
+      .video-scroll-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;     /* Firefox */
+      }
+      
+      .video-scroll-container::-webkit-scrollbar {
+        display: none;            /* Chrome, Safari and Opera */
+      }
+    </style>
+    <div id="plasmo-shadow-container" style="z-index: 1; position: absolute">
+      <div id="plasmo-mount-container" style="display: flex; position: relative; top: 0px; left: 0px"></div>
+    </div>
+  </template>
+</div>
+
+<body cz-shortcut-listen="true">
+  <div class="container banner-container">
+    <div style="padding: 10px 0 0 0">
+
+      <h1 class="text-center">
+        <b>MuJoCo Manipulus</b>: <br>A Robot Learning Benchmark for <br> Generalizable Tool Manipulation
+      </h1>
+
+      <br />
+
+      <br />
+
+      <div class="row">
+        <div class="video-scroll-container" id="autoScrollContainer" style="overflow-x: auto; white-space: nowrap; padding: 20px 0; -ms-overflow-style: none; scrollbar-width: none; pointer-events: none;">
+          <style>
+            #autoScrollContainer::-webkit-scrollbar {
+              display: none;
+            }
+            #autoScrollContainer {
+              pointer-events: none;
+            }
+          </style>
+          <div style="display: inline-flex; gap: 20px;">
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-cup.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-mug.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-pan.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <!-- Add remaining videos following the same pattern -->
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-bowl.mp4"
+                style="width: 100%;"></video>
             </div>
 
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv (Coming Soon)</span>
-                  </a>
-                </span>
-                <!-- Code Link. -->
-                <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code (Coming Soon)</span>
-                  </a>
-                </span>
-              </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-bowl.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-plate.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/hammering/hammering.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/gathering/gathering.mp4"
+                style="width: 100%;"></video>
+            </div>
 
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/scooping/scooping-ladle.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/scooping/scooping-scooper.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-plate.mp4"
+                style="width: 100%;"></video>
+            </div>
+            <div style="width: 300px; flex-shrink: 0;">
+              <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-bowl.mp4"
+                style="width: 100%;"></video>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <img src="./static/images/teaser.png" alt="MuJoCo Manipulus">
-        <h2 class="subtitle has-text-centered">
-          <span class="manipulus">MuJoCo Manipulus</span> is a robot learning benchmark for generalizable tool
-          manipulation.
-        </h2>
+      <div class="buttons" style="margin-bottom: 8px; text-align: center">
+        <a class="btn btn-primary" role="button" href="">
+          <svg style="
+                width: 24px;
+                height: 24px;
+                margin-left: -12px;
+                margin-right: 12px;
+              " viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z">
+            </path>
+          </svg>Paper (soon)
+        </a>
+        <a class="btn btn-primary" role="button" href="">
+          <svg style="
+                width: 24px;
+                height: 24px;
+                margin-left: -12px;
+                margin-right: 12px;
+              " width="24px" height="24px" class="svg-inline--fa fa-github fa-w-16" aria-hidden="true"
+            focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 512" data-fa-i2svg="">
+            <path fill="currentColor"
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+            </path>
+          </svg>Code (soon)
+        </a>
+        <!-- <a class="btn btn-primary" role="button" target="_blank" href="https://github.com/apartresearch/paper-website">
+          <svg style="
+                width: 24px;
+                height: 24px;
+                margin-left: -12px;
+                margin-right: 12px;
+              " width="24px" height="24px" viewBox="0 0 375 531">
+            <polygon fill="currentColor" points="0.5,0.866 459.5,265.87 0.5,530.874 "></polygon>
+          </svg>
+          Interactive application
+        </a> -->
       </div>
     </div>
-  </section>
+  </div>
+  <div class="outer-container">
+    <div class="container main-container">
+      <!-- SECTION ---------------------------------------------------------------------- -->
+      <h1>Abstract</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            We propose MuJoCo Manipulus, a novel simulation benchmark powered by the <a
+              href="https://mujoco.org/">MuJoCo</a> physics simulation engine, designed to accelerate advances in
+            learning for tool manipulation.
+            <br /><br />
 
+            Our benchmark includes a comprehensive set of tool manipulation tasks commonly used in the robotics
+            community---a domain where the field currently lacks a unified benchmark. Different research groups rely on
+            custom-designed tool manipulation tasks and closed-source setups, limiting cross-comparability and hindering
+            significant progress in this field.
+            <br /><br />
 
+            To that end, our benchmark provides a diverse set of challenging tool manipulation tasks, including variants
+            of Gathering, Mini-Golf, Hammering, Ping-Pong, Pouring, Scooping, Scraping, and Stacking.
+            <br /><br />
+            The benchmark supports both state-based and vision-based observation spaces, and provides users with direct
+            control of tools and robots which can grasp and manipulate tools. Our benchmark is fully integrated with the
+            Gymnasium API and seamlessly connects with widely used Deep Reinforcement Learning libraries, ensuring easy
+            adoption by the community.
+            <br /><br />
 
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              We propose <span class="manipulus">MuJoCo Manipulus</span>, a novel open-source benchmark powered by the
-              <a href="https://mujoco.org/">MuJoCo</a> physics simulation engine, designed to accelerate advances in
-              robot learning for manipulation.
-            </p>
-            <p>
-              Our benchmark includes a comprehensive set of standard manipulation tasks commonly used in the robotics
-              community, with a particular emphasis on
-              <b>tool manipulation</b>---a domain where the field currently lacks a unified benchmark. Different
-              research
-              groups
-              rely on custom-designed tasks or closed-source setups, limiting cross-comparability and hindering
-              significant progress in this field.
-            </p>
-            <p>
-              To that end, our benchmark provides a diverse set of challenging tool
-              manipulation tasks, including variants of <b>Pouring</b>, <b>Stacking</b>, <b>Scooping</b>,
-              <b>Gathering</b>,
-              <b>Hammering</b>, <b>Scraping</b>, <b>Ping Pong</b>, and <b>Mini-Golf</b>.
-            </p>
-            <p>
-              The benchmark supports both <b>state-based</b> and <b>vision-based</b> observation spaces, and
-              accommodates different modes
-              of tool interaction, from <b>free-floating tools</b> that can be directly controlled, to tools that a
-              <b>robot arm
-                learns to grasp and manipulate</b>. Our benchmark is fully integrated with the <a
-                href="https://gymnasium.farama.org/">Gymnasium API</a> and seamlessly
-              connects with widely used Deep Reinforcement Learning libraries, ensuring easy adoption by the community.
-            </p>
-            <p>
-              We conduct extensive reinforcement learning experiments on our benchmark, and our results demonstrate that
-              there is substantial progress to be made for building generalizable tool manipulation models 🚀.
-            </p>
+            We conduct extensive reinforcement learning experiments on our benchmark, and our results demonstrate that
+            there is substantial progress to be made for building generalizable tool manipulation models 🚀.
+          </p>
+        </div>
+      </div>
+      <div class="row captioned_img">
+        <div class="col-md-12">
+          <br />
+          <img src="assets/main-fig.png" alt="Main Figure for MuJoCo Manipulus" width="100%" />
+          <div class="caption">
+            MuJoCo Manipulus provides a general-purpose framework for building Deep Reinforcement Learning tasks on top
+            of the MuJoCo Physics Engine. Above, we demonstrate the simplicity of our pipeline, enabling users to
+            collect diverse tool meshes, design
+            their tasks, train deep reinforcement learning policies (e.g., using <a
+              href="https://github.com/vwxyzjn/cleanrl">CleanRL</a>), and evaluate them.
           </div>
         </div>
       </div>
-      <!--/ Abstract. -->
-    </div>
-  </section>
+      <hr class="divider" />
 
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <a class="icon-link" href="">
-          <i class="fas fa-file-pdf"></i>
-        </a>
-        <a class="icon-link" href="" class="external-link" disabled>
-          <i class="fab fa-github"></i>
-        </a>
+      <!-- SECTION ---------------------------------------------------------------------- -->
+      <h1>Our Tasks</h1>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            Our benchmark includes 16 tasks with 14 tools, all visualized below.
+          </p>
+          <p>
+            The videos below are collected from the best-performing baseline method for each task.
+          </p>
+        </div>
       </div>
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-            <p>
-              Our website's source code is based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-            </p>
+
+      <div class="row">
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-cup.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Cup</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-mug.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Mug</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-pan.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Pan</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-pot.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Pot</p>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-bowl.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Bowl</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/pouring/pouring-plate.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Pour Plate</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/hammering/hammering.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Hammer Nail</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/gathering/gathering.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Gather Cubes</p>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/scooping/scooping-ladle.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Scoop Particle</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/scooping/scooping-scooper.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Scoop Cube</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-plate.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Stack Plates</p>
+          </div>
+          <div style="width: 22%; margin: 0 1%;">
+            <video autoplay loop muted playsinline src="assets/tasks/stacking/stacking-bowl.mp4"
+              style="width: 100%;"></video>
+            <p style="margin-top: 8px; font-style: italic;">Stack Bowls</p>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
 
+      <!-- Uncomment this to make an interesting table of information -->
+      <!-- <div class="row" style="text-align: center">
+        <div class="col-md-6">
+          <p class="stat">134</p>
+          <p class="statlabel">Games</p>
+        </div>
+        <div class="col-md-6">
+          <p class="stat">4,559</p>
+          <p class="statlabel">Achievements</p>
+        </div>
+      </div>
+      <div class="row" style="text-align: center">
+        <div class="col-md-6">
+          <p class="stat">572,322</p>
+          <p class="statlabel">Scenarios</p>
+        </div>
+        <div class="col-md-6">
+          <p class="stat">2,861,610</p>
+          <p class="statlabel">Annotations</p>
+        </div>
+      </div>
+      <hr class="divider" /> -->
+
+      <!-- SECTION ---------------------------------------------------------------------- -->
+      <h1>Results section</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            Success rate curves are shown for the 16 tasks in MuJoCo Manipulus with 3 Model-Free RL Baselines: CrossQ,
+            SAC, and PPO.
+          </p>
+
+          <p>
+            Success Rates are reported every 50 episodes as the average success over the last 50 episodes,
+            and each baseline result is averaged over 5 seeds with shading for the 95% CIs.
+          </p>
+
+          <p>
+            We do not apply smoothing to the curves.
+          </p>
+        </div>
+      </div>
+      <div class="row captioned_img">
+        <div class="col-md-12">
+          <br />
+          <img src="assets/results.png" alt="Success Rates for MuJoCo Manipulus Tasks" width="100%" />
+        </div>
+      </div>
+      <hr class="divider" />
+
+      <!-- SECTION ---------------------------------------------------------------------- -->
+      <!-- <h1>Authors</h1>
+      <br />
+      <div class="row authors">
+        <div class="col-sm-3">
+          <h5 class="text-center">
+            <a class="text-center" href="">Author 1</a>
+          </h5>
+          <div class="text-center">University Name</div>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="text-center">
+            <a class="text-center" href="">Author 2</a>
+          </h5>
+          <div class="text-center">University Name</div>
+        </div>
+      </div>
+      <div class="row authors">
+        <div class="col-sm-3">
+          <h5 class="text-center">
+            <a class="text-center" href="">Author 3</a>
+          </h5>
+          <div class="text-center">University Name</div>
+        </div>
+      </div>
+      <hr class="divider" />
+      <br /> -->
+
+      <!-- SECTION ---------------------------------------------------------------------- -->
+      <!-- <h1>Citation</h1>
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <code>
+              @article{cite2024paper,<br />
+              &nbsp; author = {authors...},<br />
+              &nbsp; title = {full paper title...},<br />
+              &nbsp; journal = {journal name...},<br />
+              &nbsp; year = {2024},<br />
+              }</code>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <script src="files/scripts.js"></script>
+  <script src="files/jquery.min.js"></script>
+  <script src="files/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Assume markdownContent contains your Markdown text
+    let markdownContent = document.getElementById("content").innerText;
+
+    // Use marked library to convert Markdown to HTML
+    let htmlContent = marked(markdownContent);
+
+    // Replace the content of the element with id "content" with HTML
+    document.getElementById("content").innerHTML = htmlContent;
+  </script>
+  <script>
+    const container = document.getElementById('autoScrollContainer');
+    let scrollAmount = 0;
+    const scrollSpeed = 1; // Adjust this value to control scroll speed
+    
+    function autoScroll() {
+      scrollAmount += scrollSpeed;
+      container.scrollLeft = scrollAmount;
+      
+      // Reset scroll position when reaching the end
+      if (scrollAmount >= container.scrollWidth - container.clientWidth) {
+        scrollAmount = 0;
+      }
+      
+      requestAnimationFrame(autoScroll);
+    }
+
+    // Start auto-scrolling
+    autoScroll();
+    
+    // Optional: Pause scrolling on hover
+    container.addEventListener('mouseenter', () => scrollSpeed = 0);
+    container.addEventListener('mouseleave', () => scrollSpeed = 1);
+  </script>
 </body>
 
 </html>
