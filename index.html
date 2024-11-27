@@ -31,6 +31,25 @@
 
   <!-- <script src="files/p5.js"></script>
   <script language="javascript" type="text/javascript" src="files/sketch.js"></script> -->
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 400;
+      src: url('fonts/poppins-all-400-normal.woff2') format('woff2'),
+        url('fonts/poppins-all-400-normal.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-display: swap;
+      font-weight: 600;
+      src: url('fonts/poppins-all-600-normal.woff2') format('woff2'),
+        url('fonts/poppins-all-600-normal.woff') format('woff');
+    }
+  </style>
 </head>
 
 <div>
@@ -105,12 +124,27 @@
       }
 
       .video-scroll-container {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;     /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
       }
-      
+
       .video-scroll-container::-webkit-scrollbar {
-        display: none;            /* Chrome, Safari and Opera */
+        display: none;
+        /* Chrome, Safari and Opera */
+      }
+
+      h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        /* Since you have the 600 weight loaded */
+      }
+
+      /* You might also want to ensure the font is loaded for the entire body */
+      body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
       }
     </style>
     <div id="plasmo-shadow-container" style="z-index: 1; position: absolute">
@@ -132,11 +166,13 @@
       <br />
 
       <div class="row">
-        <div class="video-scroll-container" id="autoScrollContainer" style="overflow-x: auto; white-space: nowrap; padding: 20px 0; -ms-overflow-style: none; scrollbar-width: none; pointer-events: none;">
+        <div class="video-scroll-container" id="autoScrollContainer"
+          style="overflow-x: auto; white-space: nowrap; padding: 20px 0; -ms-overflow-style: none; scrollbar-width: none; pointer-events: none;">
           <style>
             #autoScrollContainer::-webkit-scrollbar {
               display: none;
             }
+
             #autoScrollContainer {
               pointer-events: none;
             }
@@ -482,22 +518,22 @@
     const container = document.getElementById('autoScrollContainer');
     let scrollAmount = 0;
     const scrollSpeed = 1; // Adjust this value to control scroll speed
-    
+
     function autoScroll() {
       scrollAmount += scrollSpeed;
       container.scrollLeft = scrollAmount;
-      
+
       // Reset scroll position when reaching the end
       if (scrollAmount >= container.scrollWidth - container.clientWidth) {
         scrollAmount = 0;
       }
-      
+
       requestAnimationFrame(autoScroll);
     }
 
     // Start auto-scrolling
     autoScroll();
-    
+
     // Optional: Pause scrolling on hover
     container.addEventListener('mouseenter', () => scrollSpeed = 0);
     container.addEventListener('mouseleave', () => scrollSpeed = 1);
