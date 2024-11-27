@@ -17,6 +17,11 @@
 
   <object type="text/html" data="header-vars.html"></object>
   <title>MuJoCo Manipulus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
   <!-- <meta property="og:site_name" content="INSERT TITLE" />
   <meta property="og:title" content="INSERT TITLE" />
   <meta property="og:description" content="INSERT DESCRIPTION" />
@@ -31,25 +36,6 @@
 
   <!-- <script src="files/p5.js"></script>
   <script language="javascript" type="text/javascript" src="files/sketch.js"></script> -->
-  <style>
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-display: swap;
-      font-weight: 400;
-      src: url('fonts/poppins-all-400-normal.woff2') format('woff2'),
-        url('fonts/poppins-all-400-normal.woff') format('woff');
-    }
-
-    @font-face {
-      font-family: 'Poppins';
-      font-style: normal;
-      font-display: swap;
-      font-weight: 600;
-      src: url('fonts/poppins-all-600-normal.woff2') format('woff2'),
-        url('fonts/poppins-all-600-normal.woff') format('woff');
-    }
-  </style>
 </head>
 
 <div>
@@ -134,18 +120,6 @@
         display: none;
         /* Chrome, Safari and Opera */
       }
-
-      h1 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        /* Since you have the 600 weight loaded */
-      }
-
-      /* You might also want to ensure the font is loaded for the entire body */
-      body {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-      }
     </style>
     <div id="plasmo-shadow-container" style="z-index: 1; position: absolute">
       <div id="plasmo-mount-container" style="display: flex; position: relative; top: 0px; left: 0px"></div>
@@ -157,7 +131,7 @@
   <div class="container banner-container">
     <div style="padding: 10px 0 0 0">
 
-      <h1 class="text-center">
+      <h1 class="text-center source-sans-3-200">
         <b>MuJoCo Manipulus</b>: <br>A Robot Learning Benchmark for <br> Generalizable Tool Manipulation
       </h1>
 
